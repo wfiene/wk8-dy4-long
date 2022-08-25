@@ -100,121 +100,164 @@ Test this in Postman or by using `fetch` in the browser.
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: "http://localhost:5000/artists/1"
+- Headers:none
+- Body:none
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code:200
+- Headers: "Content-Type" "application/json"
+- Body: {
+    "name": "Red Hot Chili Peppers",
+    "artistId": 1,
+    "albums": [
+        {
+            "name": "Stadium Arcadium",
+            "albumId": 1,
+            "artistId": 1
+        }
+    ]
+}
 
 ### Add an artist
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:POST
+- URL: http://localhost:5000/artists
+- Headers: "Content-Type" "application/json"
+- Body: {
+        "name": "WuTangClan",
+    }
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: "Content-Type" "application/json"
+- Body: {
+        "name": "WuTangClan",
+        "artistId": 2
+    }
 
 ### Edit a specified artist by artistId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: PATCH
+- URL: /artists/:Id
+- Headers: "Content-Type" "application/json"
+- Body: write changes
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: "Content-Type" "application/json"
+- Body: {
+    "name": "Kanye West",
+    "artistId": 2,
+    "updatedAt": "2022-08-25T21:36:20.150Z"
+}
 
 ### Delete a specified artist by artistId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
+- Method: DELETE
+- URL:/artists/:Id
+- Headers: "Content-Type" "application/json"
 - Body:
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: "Content-Type" "application/json"
+- Body:{
+    "message": "Sucessfully deleted"
+}
 
 ### Get all albums of a specific artist based on artistId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
+- Method: GET
+- URL: artists/:artistId/albums
+- Headers: "Content-Type" "application/json"
 - Body:
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: "Content-Type" "application/json"
+- Body: ex: {
+        "name": "Stadium Arcadium",
+        "albumId": 1,
+        "artistId": 1
+    }
 
 ### Get a specific album's details based on albumId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
+- Method: GET
+- URL: albums/:albumId
+- Headers: "Content-Type" "application/json"
 - Body:
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code:200
+- Headers: "Content-Type" "application/json"
+- Body: {
+  name;
+  albumId;
+  artist;
+  songs;
+}
 
 ### Add an album to a specific artist based on artistId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:POST
+- URL: /artists/:artistId/albums
+- Headers: "Content-Type" "application/json"
+- Body: {
+  name:
+}
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 201
+- Headers:"Content-Type" "application/json"
+- Body: ex: {
+    "name": "College Dropout",
+    "albumId": 2,
+    "artistId": 3
+}
 
 ### Edit a specified album by albumId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: PATCH or PUT
+- URL: /albums/:albumId
+- Headers:"Content-Type" "application/json"
+- Body: {
+  "name":
+}
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code:200
+- Headers:"Content-Type" "application/json"
+- Body: ex: {
+    "name": "Graduation",
+    "albumId": 2,
+    "artistId": 3,
+    "updatedAt": "2022-08-25T21:52:20.083Z"
+}
 
 ### Delete a specified album by albumId
 
@@ -222,13 +265,13 @@ Request components:
 
 - Method:
 - URL:
-- Headers:
+- Headers:"Content-Type" "application/json"
 - Body:
 
 Response components:
 
 - Status code:
-- Headers:
+- Headers:"Content-Type" "application/json"
 - Body:
 
 ### Get all songs of a specific artist based on artistId
@@ -237,7 +280,7 @@ Request components:
 
 - Method:
 - URL:
-- Headers:
+- Headers:"Content-Type" "application/json"
 - Body:
 
 Response components:
